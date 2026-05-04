@@ -6,6 +6,7 @@ import { NodeDetailPanel } from "./components/NodeDetailPanel";
 import { SettingsBar, useStoredApiKey } from "./components/SettingsBar";
 import { SummaryPanel } from "./components/SummaryPanel";
 import { analyzeConversation } from "./lib/analyze";
+import { DEMO_GRAPH } from "./lib/demoGraph";
 import { parseChat } from "./lib/parseChat";
 import type { ConversationGraph } from "./lib/types";
 
@@ -62,6 +63,18 @@ export default function App() {
           </div>
         </div>
         <div className="flex items-center gap-3">
+          <button
+            type="button"
+            onClick={() => {
+              setGraph(DEMO_GRAPH);
+              setSelectedNode(null);
+              setInputOpen(false);
+              setError(null);
+            }}
+            className="rounded-md border border-slate-700 bg-slate-900 px-2.5 py-1.5 text-xs text-slate-300 hover:border-slate-500"
+          >
+            View demo
+          </button>
           {graph && (
             <button
               type="button"
